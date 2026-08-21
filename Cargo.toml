@@ -44,6 +44,14 @@ winnow = { version = "1", default-features = false, features = [
     "std",
 ] }
 
+[lints.cargo]
+# Groups
+pedantic = { level = "warn", priority = -1 }
+restriction = { level = "warn", priority = -1 }
+
+# Individual Lints
+unused_dependencies = "deny"
+
 [lints.rust]
 # Groups
 deprecated_safe = { level = "warn", priority = -1 }
@@ -96,7 +104,6 @@ unreachable_pub = "warn"
 unsafe_attr_outside_unsafe = "warn"
 unsafe_op_in_unsafe_fn = "warn"
 unstable_features = "warn"
-unused_crate_dependencies = "warn"
 unused_extern_crates = "warn"
 unused_import_braces = "warn"
 unused_lifetimes = "warn"
