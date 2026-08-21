@@ -46,7 +46,7 @@ winnow = { version = "1", default-features = false, features = [
 
 [lints.rust]
 # Groups
-deprecated-safe = { level = "warn", priority = -1 }
+deprecated_safe = { level = "warn", priority = -1 }
 future_incompatible = { level = "warn", priority = -1 }
 keyword_idents = { level = "warn", priority = -1 }
 let_underscore = { level = "warn", priority = -1 }
@@ -68,9 +68,6 @@ ffi_unwind_calls = "warn"
 if_let_rescope = "warn"
 impl_trait_overcaptures = "warn"
 impl_trait_redundant_captures = "warn"
-keyword-idents = "warn"
-keyword_idents_2018 = "warn"
-keyword_idents_2024 = "warn"
 let_underscore_drop = "warn"
 linker_messages = "warn"
 macro_use_extern_crate = "warn"
@@ -126,6 +123,7 @@ alloc_instead_of_core = "warn"
 as_pointer_underscore = "warn"
 assertions_on_result_states = "warn"
 dbg_macro = "warn"
+definition_in_module_root = "warn"
 decimal_literal_representation = "warn"
 empty_enum_variants_with_brackets = "warn"
 empty_drop = "warn"
@@ -163,6 +161,7 @@ print_stdout = "warn"
 redundant_type_annotations = "warn"
 ref_patterns = "warn"
 rest_pat_in_fully_bound_structs = "warn"
+rest_pattern_accessible_field = "warn"
 same_name_method = "warn"
 semicolon_outside_block = "warn"
 separated_literal_suffix = "warn"
@@ -175,6 +174,7 @@ tests_outside_test_module = "warn"
 todo = "warn"
 try_err = "warn"
 undocumented_unsafe_blocks = "warn"
+unnecessary_rest_pattern = "warn"
 unnecessary_safety_comment = "warn"
 unnecessary_safety_doc = "warn"
 unnecessary_self_imports = "warn"
