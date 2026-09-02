@@ -59,6 +59,26 @@ prepare:
         exit 1
       }
 
+      # adb 37+ uses libusb, which only discovers USB devices present
+      # at server startup. dummy_hcd enumeration takes ~200ms after
+      # UDC binding, so we must wait for the device to appear and for
+      # udev to finish processing before starting the adb server.
+      for i in $(seq 1 10); do
+        if [ -e /sys/bus/usb/devices/1-1 ]; then
+          echo "USB device enumerated"
+          break
+        fi
+        sleep 1
+      done
+
+      if [ ! -e /sys/bus/usb/devices/1-1 ]; then
+        echo "USB device never appeared in sysfs"
+        dmesg | tail -20
+        exit 1
+      fi
+
+      udevadm settle
+
       adb start-server
       for i in $(seq 1 30); do
         if adb devices | grep -q 'device$'; then
